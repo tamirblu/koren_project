@@ -247,6 +247,96 @@
   @media (min-width:640px){
     body{display:flex;justify-content:center;}
   }
+
+  /* ===== DESKTOP ===== */
+  @media (min-width:960px){
+    :root{--maxw:1080px;}
+
+    .masthead{z-index:70;}
+    .masthead-inner{padding:0 28px;}
+    .masthead .brand{font-size:15px;}
+
+    .page{
+      padding-bottom:48px;
+      border-left:3px solid var(--ink);border-right:3px solid var(--ink);
+    }
+
+    /* --- tab bar becomes top nav, centered in the header --- */
+    .tabbar{
+      top:0;bottom:auto;left:50%;right:auto;transform:translateX(-50%);
+      width:auto;background:transparent;z-index:80;
+    }
+    .tabbar-inner{width:auto;height:var(--header-h);gap:4px;}
+    .tab{
+      flex:0 0 auto;flex-direction:row;padding:0 16px;gap:7px;
+      border-top:none;border-bottom:3px solid transparent;
+    }
+    .tab svg{width:16px;height:16px;}
+    .tab span{font-size:11px;}
+    .tab.active{border-top:none;border-bottom:3px solid var(--accent);}
+
+    /* --- home hero: two columns --- */
+    .hero{
+      display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:center;
+      padding:56px 48px 24px;
+    }
+    .hero h1{font-size:72px;margin-bottom:16px;}
+    .hero .sub{font-size:17px;max-width:38ch;}
+    .hero-frame{margin:0;box-shadow:12px 12px 0 var(--accent);}
+    .credit-line{padding:8px 48px 16px;font-size:13px;}
+
+    .home-block{
+      padding:40px 48px 16px;
+      display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;align-items:stretch;
+    }
+    .home-block h2{grid-column:1 / -1;font-size:26px;margin-bottom:4px;}
+    .scroller{grid-column:1 / -1;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;overflow:visible;}
+    .preview-card{width:auto;}
+    .preview-card img{height:160px;}
+    .stat-row{grid-column:1 / -1;flex-direction:row;gap:24px;}
+    .stat{flex:1;padding:24px 22px;}
+    .cta-card{margin-top:0;}
+
+    /* --- shared sections --- */
+    .tsec{padding:44px 48px 16px;}
+    h2.title{font-size:34px;}
+    p.lead{font-size:15.5px;max-width:62ch;}
+
+    .concept-stack{flex-direction:row;gap:32px;align-items:stretch;}
+    .concept-card{flex:1;padding:30px 26px;}
+    .concept-card.plane{margin-right:0;}
+    .concept-card.grain{margin-left:0;}
+
+    .fact-list{flex-direction:row;gap:0;}
+    .fact{flex:1;flex-direction:column;gap:10px;padding:22px 20px 22px 0;margin-right:20px;border-top:2px solid var(--ink);}
+    .fact:last-child{margin-right:0;}
+
+    .finish-gallery{gap:12px;}
+    .finish-gallery img{height:220px;}
+
+    /* --- collection: two-column card grid --- */
+    [data-panel="collection"] .tsec{
+      display:grid;grid-template-columns:1fr 1fr;gap:0 32px;
+    }
+    [data-panel="collection"] .eyebrow,
+    [data-panel="collection"] h2.title,
+    [data-panel="collection"] p.lead{grid-column:1 / -1;}
+    [data-panel="collection"] .toggle-row{grid-column:1 / -1;max-width:420px;}
+    .product-card{margin-bottom:32px;}
+
+    /* --- portfolio --- */
+    .portfolio-hero{margin:44px 48px 0;padding:44px 40px;}
+    .portfolio-hero h2{font-size:32px;}
+    .portfolio-hero p{font-size:15px;max-width:56ch;}
+    .designer-card{margin:20px 48px 0;}
+    .portfolio-note{padding:20px 48px 36px;}
+  }
+
+  /* mid-size screens: hide nav labels if space is tight */
+  @media (min-width:960px) and (max-width:1150px){
+    .masthead .brand{font-size:13px;}
+    .tab{padding:0 10px;}
+  }
 </style>
 </head>
 <body>
@@ -266,9 +356,11 @@
   <!-- ============ HOME ============ -->
   <section class="tab-panel active" data-panel="home">
     <div class="hero">
-      <span class="eyebrow">No Screws · No Glue · No Fasteners</span>
-      <h1>Plane<br/><span class="accent-word">&amp; Grain</span></h1>
-      <p class="sub">A knockdown, flat-pack furniture collection held together by geometry alone.</p>
+      <div class="hero-copy">
+        <span class="eyebrow">No Screws · No Glue · No Fasteners</span>
+        <h1>Plane<br/><span class="accent-word">&amp; Grain</span></h1>
+        <p class="sub">A knockdown, flat-pack furniture collection held together by geometry alone.</p>
+      </div>
       <div class="hero-frame">
         <img src="assets/hero.jpg" alt="Exploded component view of the Plane & Grain furniture system" />
       </div>
